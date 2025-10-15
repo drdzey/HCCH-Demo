@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\Lili.Protocol.props" />
+    <Import Project="..\..\Analysis.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <RootNamespace>Lili.Protocol.Tests.UnitTests</RootNamespace>
+        <AssemblyName>Lili.Protocol.Tests.UnitTests</AssemblyName>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputPath>bin</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <OutputPath>bin</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\..\ProductAssemblyInfo.cs" Link="Properties\ProductAssemblyInfo.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\analyzers\Analyzer\Lili.Core.Analyzer.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\..\Core\Lili.Protocol.Core.csproj" />
+        <ProjectReference Include="..\..\General\Lili.Protocol.General.csproj" />
+        <ProjectReference Include="..\..\Intercom\Lili.Protocol.Intercom.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NSubstitute" Version="5.3.0" />
+        <PackageReference Include="xunit" Version="2.9.3" />
+        <PackageReference Include="Calamara.Ng.Common.Flatable" Version="3.1.57" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="JetBrains.Annotations" Version="2024.3.0" />
+    </ItemGroup>
+</Project>
